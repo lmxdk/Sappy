@@ -149,9 +149,12 @@ label afterBeaver:
          define dressLights = False
          define dressCloak = False
          define dressDecorations = False
+         define allDressed = False
          jump afterMove
 
 label afterMove:
+   if (allDressed and lendMeSomeFir and touch and massage):
+      jump prepareIntimate
 
    menu: 
       "Uh, I feel a little bit cold, could you lend me some “fir”?" if lendMeSomeFir == False:
@@ -176,12 +179,13 @@ label afterMove:
          $ massage = True
          jump afterMove
 
-      "Dress" if (dressBoxers and dressPanties and dressCandles and dressLights and dressCloak and dressDecorations) == False:
+      "Dress" if allDressed == False:
          "What would you like to put on [name]?"
          jump dressMenu
 
 label dressMenu:
    if dressBoxers and dressPanties and dressCandles and dressLights and dressCloak and dressDecorations:
+      $ allDressed = True
       jump afterMove
 
    menu:
@@ -257,5 +261,72 @@ label candleMenu:
          $ affinity += 6
          jump dressMenu
 
+label prepareIntimate:
+   define fondleRoots = False
+   define lickResin = False
+   define playWithHollow = False
+   define spankYourself = False
+
+label intimate:
+   if fondleRoots and lickResin and playWithHollow and spankYourself:
+      jump finale
+
+   menu: 
+      "Fondle roots" if fondleRoots == False:
+         "You run your fingers along the hard trunk as you slowly get to your knees."
+         "[nameCapped] seems excited."
+         "As you get to the moss filled ground, you start to caress the exposed roots of [name]."
+         "But as you dig your fingers around the roots, you feel as if [name] closes up its branches and shies away from you."
+         $ fondleRoots = True
+         $ affinity -= 2
+         jump intimate
+
+      "Lick resin" if lickResin == False:
+         "You gently wrap your arms around the trunk and start to kiss and lick away at the resin that now flows readily."
+         "You taste the sticky earthy gold drops as you feel [name] shivering with joy."
+         $ lickResin = True
+         $ affinity += 5
+         jump intimate
+
+      "Play with hollow" if playWithHollow == False:
+         "You move your gaze to a small hollow, and then back questioning at [name]."
+         "You smile as [name] sways as if it was nodding."
+         "With care you remove the small birds nest stuck in there."
+         "[name] seems to rumble ticklishly."
+         $ playWithHollow = True
+         $ affinity += 3
+         jump intimate
+
+      "Spank yourself" if spankYourself == False:
+         "You let your jeans drop and perk out your firm cheeks as if to let [name] know to spank them."
+         "As the wind blows back and forth the branches hit with an exhilarating sting. With each hit you cry out in sweet agony while your cheeks slowly turn red."
+         $ spankYourself = True
+         $ affinity += 4         
+         jump intimate
+
+label finale:
+   menu:
+      "Shag":
+         "You can’t hold yourself back anymore, your throw yourself at [name] who stands firm as you embrace it lovingly."
+         l "“You were always the strong one.” you say as you furiously unbutton your vest, shirt and bra."
+         l "“Take me!” you say."
+         "The air shakes while you slide into each other and begin to pulsate."
+         "A short breath later you climax and while time stands still you see a seed drop from the tree and start to blossom. You fall to the ground happy and panting."
+         "…After having cuddled for a fewer hours you find the sun setting. You kiss your love and head home to your cabin. You will never forget this."
+         "Alas you know your love can never be. Maybe, just maybe one day you will return."
+         jump credits
+
+      "Chop down":
+         "You can’t hold yourself back anymore, you grab your axe and with an incensed howl you start chopping [name] down."
+         "[name] seems to give you a look of horror."
+         "Every chip of the axe makes all the delicate needles writhe in pain, until you hear a thumb and it’s all over."
+         "The beautiful young fir lays bare in front of your boots on the moss filled ground."
+         "You weep a little while you drag it away to your cabin, to do unspeakable things…"
+         jump failed
+
 label failed: 
+   return
+
+
+label credits:
    return
