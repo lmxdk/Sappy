@@ -10,8 +10,34 @@ define affinity = 20
 define name = "the tree"
 define nameCapped = "The tree"
 
+image bg forest = "images/forest.png"
+image tree = "images/tree.png"
+
+image emotes bored = "images/emotes/bored.png"
+image emotes cute = "images/emotes/cute.png"
+image emotes pissed = "images/emotes/pissed.png"
+image emotes proud = "images/emotes/proud.png"
+image emotes relaxed = "images/emotes/relaxed.png"
+image emotes relaxedBlush = "images/emotes/relaxedBlush.png"
+image emotes shock = "images/emotes/shock.png"
+image emotes shySmile = "images/emotes/shySmile.png"
+image emotes superHappy = "images/emotes/superHappy.png"
+image emotes unhappy = "images/emotes/unhappy.png"
+
+image deco boxers = "images/deco/boxers.png"
+image deco candles = "images/deco/candles.png"
+image deco decoration = "images/deco/decoration.png"
+image deco lights = "images/deco/lights.png"
+image deco panties = "images/deco/panties.png"
+image deco cloak = "images/deco/santacloak.png"
+
+
 # The game starts here.
 label start:
+   scene bg forest
+   with fade
+
+   show tree with fade
 
    "You see a sultry young fir tree in the prime of its youth."
    "It's stands tall and dignified almost as if it hadn't noticed you."

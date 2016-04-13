@@ -11,8 +11,8 @@ init -1 python hide:
 
     ## These control the width and height of the screen.
 
-    config.screen_width = 800
-    config.screen_height = 600
+    config.screen_width = 800#2000#800
+    config.screen_height = 600#1500#600
 
     ## This controls the title of the window, when Ren'Py is
     ## running in a window.
@@ -103,10 +103,10 @@ init -1 python hide:
     ## Padding is space inside the window, where the background is
     ## drawn.
 
-    # style.window.left_padding = 6
-    # style.window.right_padding = 6
-    # style.window.top_padding = 6
-    # style.window.bottom_padding = 6
+    #style.window.left_padding = 20
+    #style.window.right_padding = 20
+    #style.window.top_padding = 20
+    #style.window.bottom_padding = 20
 
     ## This is the minimum height of the window, including the margins
     ## and padding.
@@ -143,7 +143,7 @@ init -1 python hide:
 
     ## The default size of text.
 
-    # style.default.size = 22
+    #style.default.size = 30
 
     ## Note that these only change the size of some of the text. Other
     ## buttons have their own styles.
