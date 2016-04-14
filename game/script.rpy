@@ -37,6 +37,10 @@ transform emotePos:
     xpos 812
     ypos 288
 
+transform proudPos:
+   xpos 819
+   ypos 267
+
 #415 103
 # The game starts here.
 label start:
@@ -70,7 +74,6 @@ label hiBranch:
          jump afterHi
 
 label afterHi:
-   jump dressMenu
 
    l "Hi, I'm the lumberjack."
    l "I can't believe I haven't seen you before."
@@ -126,14 +129,14 @@ label chooseName:
 
       "Can I call you Victorius Darrell?":
          "The tree seems to straighten it's trunk."
-         show emotes proud at emotePos with dissolve
+         show emotes proud at proudPos with dissolve
          $ affinity += 2
          $ name = nameCapped = "Victorius Darrell"
          jump beforeName
 
       "What if I call you Æðelmær?":
          "The tree seems to straighten it's trunk and basking in the wind."
-         show emotes proud at emotePos with dissolve
+         show emotes proud at proudPos with dissolve
          $ name = nameCapped = "Æðelmær"
          $ affinity += 3
          jump beforeName
@@ -372,7 +375,7 @@ label intimate:
 
       "Spank yourself" if spankYourself == False:
          "You let your jeans drop and perk out your firm cheeks as if to let [name] know to spank them."
-         show emotes proud at emotePos with dissolve
+         show emotes proud at proudPos with dissolve
          "As the wind blows back and forth the branches hit with an exhilarating sting. With each hit you cry out in sweet agony while your cheeks slowly turn red."
          $ spankYourself = True
          $ affinity += 4         
