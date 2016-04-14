@@ -11,8 +11,8 @@ init -1 python hide:
 
     ## These control the width and height of the screen.
 
-    config.screen_width = 800#2000#800
-    config.screen_height = 600#1500#600
+    config.screen_width = 1440#2000#800
+    config.screen_height = 1080#1500#600
 
     ## This controls the title of the window, when Ren'Py is
     ## running in a window.
