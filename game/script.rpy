@@ -389,7 +389,7 @@ label finale:
       "Shag":
          "You can’t hold yourself back anymore, your throw yourself at [name] who stands firm as you embrace it lovingly."
          show emotes relaxedBlush at emotePos with dissolve
-         l "You were always the strong one.” 
+         l "You were always the strong one."
          "…you say as you furiously unbutton your vest, shirt and bra."
          l "Take me!"
          "The air shakes while you slide into each other and begin to pulsate."

@@ -25,19 +25,14 @@
     <Content Include="game\cache\pyanalysis.rpyb" />
     <Content Include="game\cache\screens.rpyb" />
     <Content Include="game\options.rpy" />
-    <Content Include="game\options.rpyc" />
     <Content Include="game\screens.rpy" />
-    <Content Include="game\screens.rpyc" />
     <Content Include="game\script.rpy" />
-    <Content Include="game\script.rpyc" />
     <Content Include="log.txt" />
     <Content Include="README.html" />
-    <Content Include="tmp\lint.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="game" />
     <Folder Include="game\cache" />
-    <Folder Include="tmp" />
   </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />

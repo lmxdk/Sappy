@@ -174,35 +174,15 @@ screen nvl(dialogue, items=None):
 # Screen that's used to display the main menu, when Ren'Py first starts
 # http://www.renpy.org/doc/html/screen_special.html#main-menu
 
-
-image apple = "images/apple1.png"
-image olive = "images/olive1.png"
-image birch = "images/birch1.png"
-image fir = "images/fir1.png"
-image lemon = "images/lemon1.png"
-image logo = "images/logo.png"
-image forest = "images/forest.png"
-
-def tranform pulsate(intensity, period, x):
-    xpos (x*250) ypos 200
-    linear period zoom (1+intensity)
-    linear period zoom (1-intensity)
-    repeat
-
 screen main_menu():
 
     # This ensures that any other menu screen is replaced.
     tag menu
-    add "images/forest.png" xpos 0 ypos 0 
-    add "images/apple1.png" at Transform(function=pulsate(0))
-    add "images/olive1.png" at pulsate(1)
-    add "images/birch1.png" at pulsate(2)
-    add "images/fir1.png" at pulsate(3)
-    add "images/lemon1.png" at pulsate(4)
+    #add "images/splash.png" xpos 0 ypos 0 
     
     # The background of the main menu.
-    #window:
-    #    style "mm_root"
+    window:
+        style "mm_root"
 
     # The main menu buttons.
     frame:
@@ -213,9 +193,9 @@ screen main_menu():
         has vbox
 
         textbutton _("Start Game") action Start()
-        textbutton _("Load Game") action ShowMenu("load")
+        #textbutton _("Load Game") action ShowMenu("load")
         textbutton _("Preferences") action ShowMenu("preferences")
-        textbutton _("Help") action Help()
+        #textbutton _("Help") action Help()
         textbutton _("Quit") action Quit(confirm=False)
 
 init -2:
@@ -241,17 +221,17 @@ screen navigation():
     # The various buttons.
     frame:
         style_group "gm_nav"
-        xalign .98
-        yalign .98
+        xalign .5
+        yalign .5
 
         has vbox
 
         textbutton _("Return") action Return()
         textbutton _("Preferences") action ShowMenu("preferences")
-        textbutton _("Save Game") action ShowMenu("save")
-        textbutton _("Load Game") action ShowMenu("load")
+        #textbutton _("Save Game") action ShowMenu("save")
+        #textbutton _("Load Game") action ShowMenu("load")
         textbutton _("Main Menu") action MainMenu()
-        textbutton _("Help") action Help()
+        #textbutton _("Help") action Help()
         textbutton _("Quit") action Quit()
 
 init -2:
@@ -337,7 +317,7 @@ screen save():
     tag menu
 
     use navigation
-    use file_picker
+    #use file_picker
 
 screen load():
 
@@ -345,7 +325,7 @@ screen load():
     tag menu
 
     use navigation
-    use file_picker
+    #use file_picker
 
 init -2:
     style file_picker_frame is menu_frame
@@ -511,11 +491,11 @@ screen yesno_prompt(message, yes_action, no_action):
 
         xfill True
         xmargin .05
-        ypos .1
+        yalign .5
         yanchor 0
         ypadding .05
 
-        has vbox:
+        has vbox:                        
             xalign .5
             yalign .5
             spacing 30
@@ -557,7 +537,7 @@ screen quick_menu():
         yalign 1.0
 
         textbutton _("Back") action Rollback()
-        textbutton _("Save") action ShowMenu('save')
+        #textbutton _("Save") action ShowMenu('save')
         textbutton _("Q.Save") action QuickSave()
         textbutton _("Q.Load") action QuickLoad()
         textbutton _("Skip") action Skip()
