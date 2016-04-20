@@ -174,14 +174,35 @@ screen nvl(dialogue, items=None):
 # Screen that's used to display the main menu, when Ren'Py first starts
 # http://www.renpy.org/doc/html/screen_special.html#main-menu
 
+
+image apple = "images/apple1.png"
+image olive = "images/olive1.png"
+image birch = "images/birch1.png"
+image fir = "images/fir1.png"
+image lemon = "images/lemon1.png"
+image logo = "images/logo.png"
+image forest = "images/forest.png"
+
+def tranform pulsate(intensity, period, x):
+    xpos (x*250) ypos 200
+    linear period zoom (1+intensity)
+    linear period zoom (1-intensity)
+    repeat
+
 screen main_menu():
 
     # This ensures that any other menu screen is replaced.
     tag menu
-
+    add "images/forest.png" xpos 0 ypos 0 
+    add "images/apple1.png" at Transform(function=pulsate(0))
+    add "images/olive1.png" at pulsate(1)
+    add "images/birch1.png" at pulsate(2)
+    add "images/fir1.png" at pulsate(3)
+    add "images/lemon1.png" at pulsate(4)
+    
     # The background of the main menu.
-    window:
-        style "mm_root"
+    #window:
+    #    style "mm_root"
 
     # The main menu buttons.
     frame:

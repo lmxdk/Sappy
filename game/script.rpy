@@ -34,11 +34,11 @@ image decoPanties = "images/deco/panties.png"
 image decoCloak = "images/deco/santacloak.png"
 
 transform emotePos:
-    xpos 812
+    xpos 880
     ypos 288
 
 transform proudPos:
-   xpos 819
+   xpos 887
    ypos 267
 
 #415 103
@@ -278,7 +278,8 @@ label dressMenu:
          jump dressMenu
          
       "A low power, battery driven LED light chain." if dressLights == False:
-         l "“Have you ever tried it while tied before?” you say with playful smile."
+         l "Have you ever tried it while tied before?"
+         "...you say with playful smile."
          "You reveal a line of lights from your padded vest."
          show emotes shySmile at emotePos with dissolve
          "[nameCapped] seems to look coyly at you."
@@ -298,7 +299,8 @@ label dressMenu:
 
       "Decorate" if dressDecorations == False:
          "Remembering the air of Christmas, the tree gave you earlier you grab some ornaments from your rucksack."
-         l "“Is it okay?” you ask before decorating the tree."
+         l "Is it okay?"
+         "...you ask before decorating the tree."
          show emotes superHappy at emotePos with dissolve
          "[nameCapped] seems excited."
          show decoDecoration with dissolve
@@ -319,7 +321,8 @@ label candleMenu:
          jump dressMenu
 
       "Don’t worry honey, I won’t burn you.":
-         l "You finally find the candles. As you pull out the sticks you say “and it won’t hurt… too much.”"
+         "You finally find the candles. As you pull out the sticks you say:"
+         l "…and it won’t hurt… too much."
          "You hold up the candle and light it dramatically, looking directly at [name] through the flickering flame."
          show emotes cute at emotePos with dissolve
          "[nameCapped] seems nervous but its interests seems to have been peaked."
@@ -386,8 +389,9 @@ label finale:
       "Shag":
          "You can’t hold yourself back anymore, your throw yourself at [name] who stands firm as you embrace it lovingly."
          show emotes relaxedBlush at emotePos with dissolve
-         l "“You were always the strong one.” you say as you furiously unbutton your vest, shirt and bra."
-         l "“Take me!” you say."
+         l "You were always the strong one.” 
+         "…you say as you furiously unbutton your vest, shirt and bra."
+         l "Take me!"
          "The air shakes while you slide into each other and begin to pulsate."
          "A short breath later you climax and while time stands still you see a seed drop from the tree and start to blossom. You fall to the ground happy and panting."
          "…After having cuddled for a fewer hours you find the sun setting. You kiss your love and head home to your cabin. You will never forget this."
