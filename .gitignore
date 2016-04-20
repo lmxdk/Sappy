@@ -3,3 +3,5 @@ game/saves/
 errors.txt
 tmp/
 traceback.txt
+*.rpyb
+*.rpyc

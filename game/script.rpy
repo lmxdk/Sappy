@@ -40,10 +40,9 @@ transform emotePos:
 transform proudPos:
    xpos 887
    ypos 267
-
 #415 103
 # The game starts here.
-label start:
+label start:   
    scene bg forest with fade
 
    show tree with dissolve
@@ -192,12 +191,15 @@ label lickTheTree:
          voice "voice/3_3_2-0.wav"
          l "Why does it always have to end this way?"
          "You take your heavy axe, and with a sigh you start chopping [name] down."
+         play sound "sound/Chopping Wood.wav"
          show emotes shock at emotePos with dissolve
          "[nameCapped] seems to give you a look of horror."
          "Every chip of the axe makes all the delicate needles writhe in pain, until you hear a thumb and its all over."
+         play sound "sound/Tree Falling.wav"
          show emotes unhappy at emotePos with dissolve
-         "The beautiful young fir lays bare in front of your boots on the moss filled ground."
-         hide tree
+         hide tree with dissolve
+         "The beautiful young fir lays bare in front of your boots on the moss filled ground."         
+         hide emotes with dissolve
          "You weep a little while you drag it away to your cabin, to do unspeakable things…"
          jump failed
            
@@ -368,6 +370,7 @@ label dressMenu:
          jump dressMenu
 
       "Candles" if dressCandles == False:
+         play sound "sound/Lighter.mp3"
          voice "voice/5_4_5-0.wav"
          "You pick up your lighter, and spark it while rummaging through your bag to find the wax candles your brought."
          show emotes shock at emotePos with dissolve
@@ -527,6 +530,7 @@ label finale:
          "You can’t hold yourself back anymore."
          voice "voice/7_2-1.wav"
          "You grab your axe and with an incensed howl you start chopping [name] down."
+         play sound "sound/Chopping Wood.wav"
          show emotes shock at emotePos with dissolve
          voice "voice/7_2-2.wav"
          "[name] seems to give you a look of horror."
@@ -535,9 +539,11 @@ label finale:
          show emotes unhappy at emotePos with dissolve
          voice "voice/7_2-4.wav"
          "...until you hear a thumb and it’s all over."
+         play sound "sound/Tree Falling.wav"         
+         hide tree with dissolve
          voice "voice/7_2-5.wav"
-         "The beautiful young fir lays bare in front of your boots on the moss filled ground."
-         hide tree
+         "The beautiful young fir lays bare in front of your boots on the moss filled ground."         
+         hide emotes with dissolve
          voice "voice/7_2-6.wav"
          "You weep a little while you drag it away to your cabin, to do unspeakable things…"
          jump failed
