@@ -280,3 +280,94 @@ init -1 python hide:
 
     #########################################
     ## More customizations can go here.
+
+
+## This section contains information about how to build your project into
+## distribution files.
+init python:
+
+    ## The name that's used for directories and archive files. For example, if
+    ## this is 'mygame-1.0', the windows distribution will be in the
+    ## directory 'mygame-1.0-win', in the 'mygame-1.0-win.zip' file.
+    build.directory_name = "Sappy-1.0"
+
+    ## The name that's uses for executables - the program that users will run
+    ## to start the game. For example, if this is 'mygame', then on Windows,
+    ## users can click 'mygame.exe' to start the game.
+    build.executable_name = "Sappy"
+
+    ## If True, Ren'Py will include update information into packages. This
+    ## allows the updater to run.
+    build.include_update = False
+
+    ## File patterns:
+    ##
+    ## The following functions take file patterns. File patterns are case-
+    ## insensitive, and matched against the path relative to the base
+    ## directory, with and without a leading /. If multiple patterns match,
+    ## the first is used.
+    ##
+    ##
+    ## In a pattern:
+    ##
+    ## /
+    ##     Is the directory separator.
+    ## *
+    ##     Matches all characters, except the directory separator.
+    ## **
+    ##     Matches all characters, including the directory separator.
+    ##
+    ## For example:
+    ##
+    ## *.txt
+    ##     Matches txt files in the base directory.
+    ## game/**.ogg
+    ##     Matches ogg files in the game directory or any of its subdirectories.
+    ## **.psd
+    ##    Matches psd files anywhere in the project.
+
+    ## Classify files as None to exclude them from the built distributions.
+
+    build.classify('**~', None)
+    build.classify('**.bak', None)
+    build.classify('**/.**', None)
+    build.classify('**/#**', None)
+    build.classify('**/thumbs.db', None)
+    build.classify('game/images/orig/*.*', None)
+    build.classify('**.pspimage', None)
+    build.classify('**.pdn', None)
+    build.classify('**.pyproj', None)
+    build.classify('**.sln', None)    
+    build.classify('**.sln.DotSettings.user', None)
+    build.classify('log.txt', None)   
+    build.classify('traceback.txt', None)
+    build.classify('errors.txt', None)
+    build.classify('.gitignore', None)
+
+    # Declare two archives.
+    build.archive("scripts", "all")
+    build.archive("images", "all")
+    build.archive("sound", "all")
+
+    # Put script files into the scripts archive.
+    build.classify("game/**.rpy", "scripts")
+    build.classify("game/**.rpyc", "scripts")
+
+    # Put images into the images archive.
+    build.classify("game/**.jpg", "images")
+    build.classify("game/**.png", "images")
+   
+    build.classify("game/**.wav", "sound")
+    build.classify("game/**.ogg", "sound")
+
+    ## To archive files, classify them as 'archive'.
+
+    # build.classify('game/**.png', 'archive')
+    # build.classify('game/**.jpg', 'archive')
+
+    ## Files matching documentation patterns are duplicated in a mac app
+    ## build, so they appear in both the app and the zip file.
+
+    build.documentation('*.html')
+    build.documentation('*.txt')
+    
