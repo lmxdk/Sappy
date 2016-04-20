@@ -33,6 +33,8 @@ image decoLights = "images/deco/lights.png"
 image decoPanties = "images/deco/panties.png"
 image decoCloak = "images/deco/santacloak.png"
 
+image creditsImage = "images/credits.png"
+
 transform emotePos:
     xpos 880
     ypos 288
@@ -190,16 +192,23 @@ label lickTheTree:
       "Why does it always have to end this way (Chop down the tree)?":
          voice "voice/3_3_2-0.wav"
          l "Why does it always have to end this way?"
+         voice "voice/3_3_2-1.wav"
          "You take your heavy axe, and with a sigh you start chopping [name] down."
          play sound "sound/Chopping Wood.wav"
          show emotes shock at emotePos with dissolve
+         voice "voice/7_2-2.wav"
          "[nameCapped] seems to give you a look of horror."
-         "Every chip of the axe makes all the delicate needles writhe in pain, until you hear a thumb and its all over."
+         voice "voice/7_2-3.wav"
+         "Every chip of the axe makes all the delicate needles writhe in pain"
+         voice "voice/7_2-4.wav"
+         "...until you hear a thumb and its all over."
          play sound "sound/Tree Falling.wav"
          show emotes unhappy at emotePos with dissolve
          hide tree with dissolve
+         voice "voice/7_2-5.wav"
          "The beautiful young fir lays bare in front of your boots on the moss filled ground."         
          hide emotes with dissolve
+         voice "voice/7_2-6.wav"
          "You weep a little while you drag it away to your cabin, to do unspeakable things…"
          jump failed
            
@@ -455,7 +464,7 @@ label intimate:
          show emotes relaxed at emotePos with dissolve
          voice "voice/6_1-1.wav"
          "[nameCapped] seems excited."         
-         #TODO LMK missing
+         voice "voice/6_1-1a.wav"
          "As you get to the moss filled ground, you start to caress the exposed roots of [name]."
          voice "voice/6_1-2.wav"
          "But as you dig your fingers around the roots, you feel as if [name] closes up its branches and shies away from you."
@@ -549,8 +558,23 @@ label finale:
          jump failed
 
 label failed: 
+   jump credits
    return
 
 
 label credits:
+   scene bg forest 
+   #hide emotes
+   #hide tree
+   #hide decoBoxers
+   #hide decoCandles
+   #hide decoDecoration 
+   #hide decoLights 
+   #hide decoPanties
+   #hide decoCloak 
+
+   show creditsImage with dissolve
+   pause 5
+   hide creditsImage with dissolve
+
    return
