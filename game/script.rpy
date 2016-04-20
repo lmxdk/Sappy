@@ -313,6 +313,9 @@ label afterMove:
          "What would you like to put on [name]?"
          jump dressMenu
 
+      "Continue" if lendMeSomeFir or touch or massage or dressBoxers and dressPanties or dressCandles or dressLights or dressCloak or dressDecorations:
+         jump prepareIntimate
+
 label dressMenu:
    if dressBoxers and dressPanties and dressCandles and dressLights and dressCloak and dressDecorations:
       $ allDressed = True
@@ -509,6 +512,9 @@ label intimate:
          $ spankYourself = True
          $ affinity += 4         
          jump intimate
+
+      "Continue" if spankYourself or playWithHollow or lickResin:
+         jump finale
 
 label finale:
    menu:
